@@ -1,0 +1,218 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block content %}
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Custom furniture · handmade in Oslo</div>
+    <h1 style="margin-top:22px">Møbelsnekker I&amp;W</h1>
+    <div class="hero-grid">
+      <div class="hero-photo">
+        <img src="{% static 'core/img/hero_master.jpg' %}" alt="Carpenter at work in the I&W workshop in Oslo">
+        <div class="badge"><i></i>Taking new orders now</div>
+      </div>
+      <div class="hero-copy">
+        <div>
+          <div class="quote">“Make your home unique”<small>“Your furniture. Your rules.”</small></div>
+          <p class="lead">Kitchens, wardrobes, bookshelves, tables and built‑ins — designed around your space and built by hand in our own Oslo workshop. Made with attention to detail, durability and timeless design.</p>
+          <div class="hero-cta">
+            <a href="#contact" class="btn lime">Make an order</a>
+            <button type="button" class="btn ghost" data-open="consult">Free consultation</button>
+          </div>
+        </div>
+        <div class="facts">
+          <div><b>Made to measure</b><span>Every piece fits your room</span></div>
+          <div><b>Own workshop</b><span>Malmøgata 11, Oslo</span></div>
+          <div><b>Turnkey</b><span>Drawings, delivery, install</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="marquee">
+    <div class="track">
+      <span>Kitchens <svg><use href="#star"/></svg> Wardrobes <svg><use href="#star"/></svg> Bookshelves <svg><use href="#star"/></svg> TV walls <svg><use href="#star"/></svg> Dining tables <svg><use href="#star"/></svg> Built‑ins <svg><use href="#star"/></svg></span>
+      <span>Kitchens <svg><use href="#star"/></svg> Wardrobes <svg><use href="#star"/></svg> Bookshelves <svg><use href="#star"/></svg> TV walls <svg><use href="#star"/></svg> Dining tables <svg><use href="#star"/></svg> Built‑ins <svg><use href="#star"/></svg></span>
+    </div>
+  </div>
+</section>
+
+<!-- COLLECTION -->
+<section class="collection">
+  <div class="wrap">
+    <div class="eyebrow">New collection</div>
+    <div class="coll-board">
+      <img src="{% static 'core/img/cut_stool.png' %}" alt="Side table with checkered top" style="left:0;top:40px;width:150px">
+      <div class="t" style="right:0;top:30px;text-align:right">New Seating</div>
+      <div class="t" style="right:0;top:150px">Tables &amp;</div>
+      <div class="t" style="left:0;top:300px">Coffee</div>
+      <img src="{% static 'core/img/cut_lamp.png' %}" alt="Table lamp" style="left:56%;top:270px;width:70px">
+      <img src="{% static 'core/img/cut_sideboard.png' %}" alt="Oak sideboard" style="left:0;top:450px;width:330px">
+      <div class="t" style="left:38%;top:430px">Tables</div>
+      <img src="{% static 'core/img/cut_cabinet.png' %}" alt="Slatted cabinet" style="right:0;top:330px;width:200px">
+      <div class="tag" style="left:38%;top:560px">(in Oslo)</div>
+    </div>
+    <div class="coll-foot">
+      <p>Small series of solid‑wood seating, side tables and coffee tables — designed and made in our workshop. Each piece can be adjusted in size, wood and finish.</p>
+      <a href="#contact" class="btn ghost">Ask about a piece <svg width="20" height="20"><use href="#arrow"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>What we build</h2>
+      <p>From one wall shelf to a full kitchen. You tell us the idea — we take care of the drawings, materials, production and installation.</p>
+    </div>
+    <div class="svc">
+      <a class="card" href="#contact"><div class="ph"><img src="{% static 'core/img/p04_kitchen.jpg' %}" alt="Custom kitchen"></div><div class="bd"><span class="no">01</span><h3>Kitchens</h3><p>Fronts, islands and full kitchens built to your layout and appliances.</p><span class="more">Get a quote <svg width="18" height="18"><use href="#arrow"/></svg></span></div></a>
+      <a class="card" href="#contact"><div class="ph"><img src="{% static 'core/img/p06_wardrobe.jpg' %}" alt="Wardrobe"></div><div class="bd"><span class="no">02</span><h3>Wardrobes</h3><p>Built‑in wardrobes for alcoves, niches and sloped ceilings — every centimetre used.</p><span class="more">Get a quote <svg width="18" height="18"><use href="#arrow"/></svg></span></div></a>
+      <a class="card" href="#contact"><div class="ph"><img src="{% static 'core/img/p02_tvwall.jpg' %}" alt="TV wall unit"></div><div class="bd"><span class="no">03</span><h3>Bookshelves &amp; TV walls</h3><p>Floor‑to‑ceiling shelving and media walls with hidden storage.</p><span class="more">Get a quote <svg width="18" height="18"><use href="#arrow"/></svg></span></div></a>
+      <a class="card" href="#contact"><div class="ph"><img src="{% static 'core/img/p11_dining.jpg' %}" alt="Dining table and bench"></div><div class="bd"><span class="no">04</span><h3>Tables &amp; benches</h3><p>Dining tables, window benches and coffee tables in solid wood.</p><span class="more">Get a quote <svg width="18" height="18"><use href="#arrow"/></svg></span></div></a>
+      <a class="card" href="#contact"><div class="ph"><img src="{% static 'core/img/p05_winecabinet.jpg' %}" alt="Wine storage"></div><div class="bd"><span class="no">05</span><h3>Special storage</h3><p>Wine cabinets, under‑stair storage and pieces you can't buy in a shop.</p><span class="more">Get a quote <svg width="18" height="18"><use href="#arrow"/></svg></span></div></a>
+      <a class="card" href="#contact"><div class="ph"><img src="{% static 'core/img/p12_wallpanel.jpg' %}" alt="Wall panelling"></div><div class="bd"><span class="no">06</span><h3>Panels &amp; built‑ins</h3><p>Wood wall panels, sliding doors and integrated interior solutions.</p><span class="more">Get a quote <svg width="18" height="18"><use href="#arrow"/></svg></span></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects" id="projects">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Projects</h2>
+      <p>Real homes in and around Oslo. Every project starts with a conversation and ends with furniture that fits like it was always there.<br><br><a href="{{ facebook_url }}" target="_blank" rel="noopener">More projects on Facebook →</a></p>
+    </div>
+    <div class="bento">
+      <div class="tile t1"><img src="{% static 'core/img/p01_livingroom.jpg' %}" alt=""><div class="cap"><span class="pill">Living room shelving wall</span><span class="num">01</span></div></div>
+      <div class="tile t2"><img src="{% static 'core/img/p03_shelving.jpg' %}" alt=""><div class="cap"><span class="pill">Media wall</span><span class="num">02</span></div></div>
+      <div class="tile t3"><img src="{% static 'core/img/p08_alcove.jpg' %}" alt=""><div class="cap"><span class="pill">Alcove office</span><span class="num">03</span></div></div>
+      <div class="tile t4"><img src="{% static 'core/img/p07_cabinet.jpg' %}" alt=""><div class="cap"><span class="pill">Sideboard</span><span class="num">04</span></div></div>
+      <div class="tile t5"><img src="{% static 'core/img/p13_wallshelf.jpg' %}" alt=""><div class="cap"><span class="pill">Kitchen shelf</span><span class="num">05</span></div></div>
+      <div class="tile t6"><img src="{% static 'core/img/p09_sideboard.jpg' %}" alt=""><div class="cap"><span class="pill">Oak TV bench</span><span class="num">06</span></div></div>
+      <div class="tile t7"><img src="{% static 'core/img/p10_workshop.jpg' %}" alt=""><div class="cap"><span class="pill">In the workshop</span><span class="num">07</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS + ABOUT -->
+<section class="benefits">
+  <div class="wrap">
+    <div class="sec-head"><h2>Why I&amp;W</h2><p>Factory furniture is made for an average room. Yours isn't average.</p></div>
+    <div class="ben">
+      <div><b>01</b><h3>Exact fit</h3><p>Measured on site, built for your walls, ceilings and corners.</p></div>
+      <div><b>02</b><h3>Solid materials</h3><p>Quality wood and hardware that lasts for decades, not seasons.</p></div>
+      <div><b>03</b><h3>Free drawings</h3><p>No sketches? We prepare professional drawings for you.</p></div>
+      <div><b>04</b><h3>One contact</h3><p>The carpenter who builds it is the one you talk to — from idea to install.</p></div>
+    </div>
+
+    <div class="about">
+      <div class="imgs">
+        <img src="{% static 'core/img/hero_master.jpg' %}" alt="">
+        <img src="{% static 'core/img/p10_workshop.jpg' %}" alt="">
+      </div>
+      <div>
+        <div class="eyebrow" style="margin-bottom:20px">About us</div>
+        <h2>Built by hand, with care and precision</h2>
+        <p>I am a dedicated carpenter specializing in custom‑made kitchens, wardrobes, tables and shelves. Every piece is designed and built by hand with attention to detail, durability and timeless design.</p>
+        <p>My goal is to create furniture that fits your home perfectly — both functional and beautiful. Whether you need a smart storage solution or a unique dining table, I'll make it with care and precision.</p>
+        <a href="#contact" class="btn lime" style="margin-top:20px">Talk to the carpenter</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STEPS -->
+<section class="steps" id="process">
+  <div class="wrap steps-grid">
+    <div><h2>Step<br>by step<svg class="star"><use href="#star"/></svg></h2></div>
+    <div>
+      <div class="step"><div class="n">01/</div><div><h3>Get started</h3><p>Tell us about your project and desired time frame. You get a free consultation as well.</p></div></div>
+      <div class="step"><div class="n">02/</div><div><h3>Communication</h3><p>All communication is handled by email (iCloud Mail, Gmail) or phone — whatever is easiest for you.</p></div></div>
+      <div class="step"><div class="n">03/</div><div><h3>Project design</h3><p>Send us your measurements, sketches or photos. If you don't have them, we'll prepare professional drawings for you.</p></div></div>
+      <div class="step"><div class="n">04/</div><div><h3>Delivery</h3><p>Together we decide where the work will be completed:</p>
+        <ul><li>At your apartment (built‑in furniture)</li><li>Delivered to your door</li><li>Self pick‑up from the workshop</li></ul>
+        <p class="note">*Delivery costs depend on location, floor level and delivery method.</p></div></div>
+      <div class="step"><div class="n">05/</div><div><h3>Deposit</h3><p>After discussing all project details, we take a small deposit before the work begins. It covers part of the final price and can be refunded if the order is cancelled within a short period.</p></div></div>
+      <div class="cta"><a href="#contact" class="btn lime">Make an order</a><button type="button" class="btn ghost" data-open="consult">Get consultation</button><a href="{% url 'calculator' %}" class="btn ghost">Calculate price</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICES -->
+<section class="prices" id="prices">
+  <div class="wrap">
+    <div class="sec-head"><h2>Prices</h2><p>Every piece is unique, so the final price depends on size, materials and finish. Here's where you start.</p></div>
+    <div class="plans">
+      <div class="plan"><span class="lbl">Start here</span><h3 style="font-size:26px">Consultation</h3><div class="price">0 kr</div>
+        <ul><li>Talk through your idea</li><li>Advice on materials and design</li><li>Rough budget estimate</li></ul>
+        <button type="button" class="btn ghost" data-open="consult">Book for free</button></div>
+      <div class="plan dark"><span class="lbl">Most popular</span><h3 style="font-size:26px">Single piece</h3><div class="price">from 5 600 kr <small>incl. VAT</small></div>
+        <ul><li>Tables, benches, shelves, cabinets</li><li>Drawings included</li><li>Choice of wood and finish</li><li>Delivery on request</li></ul>
+        <a href="{% url 'calculator' %}" class="btn lime">Calculate your price</a></div>
+      <div class="plan"><span class="lbl">Turnkey</span><h3 style="font-size:26px">Built‑in project</h3><div class="price">from 45 000 kr <small>kitchens</small></div>
+        <ul><li>Kitchens, wardrobes, media walls</li><li>On‑site measuring</li><li>Production in our workshop</li><li>Installation in your home</li></ul>
+        <a href="{% url 'calculator' %}?type=kitchen" class="btn ghost">Estimate a project</a></div>
+    </div>
+    <div class="calc-band"><div><b>Not sure about the budget?</b><span>Choose type, size and wood — and see an estimate in 30 seconds.</span></div><a href="{% url 'calculator' %}" class="btn lime">Open price calculator <svg width="18" height="18"><use href="#arrow"/></svg></a></div>
+  </div>
+</section>
+
+<!-- REVIEWS (placeholders) -->
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <div class="sec-head"><h2>Reviews</h2><p>What our clients say. <span style="color:#b0662a">✎ Paste real reviews from the client's Facebook page into these cards.</span></p></div>
+    <div class="rv">
+      <div class="r"><div class="stars">★★★★★</div><p>[Client review text from Facebook]</p><div class="who"><i></i>[Client name] · [Project]</div></div>
+      <div class="r"><div class="stars">★★★★★</div><p>[Client review text from Facebook]</p><div class="who"><i></i>[Client name] · [Project]</div></div>
+      <div class="r"><div class="stars">★★★★★</div><p>[Client review text from Facebook]</p><div class="who"><i></i>[Client name] · [Project]</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <img class="bg" src="{% static 'core/img/cabin.jpg' %}" alt="">
+  <div class="wrap">
+    <div>
+      <h2>Make your house feel like a <em>home.</em></h2>
+      <div class="form-wrap">
+      <form class="form js-form" id="order-form" data-endpoint="{% url 'api_order' %}" enctype="multipart/form-data" novalidate>
+        {% csrf_token %}
+        <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="row2">
+          <label class="field"><span>Name *</span><input name="name" required maxlength="120" autocomplete="name"></label>
+          <label class="field"><span>Tlf. *</span><input name="phone" type="tel" required maxlength="40" autocomplete="tel" placeholder="+47"></label>
+        </div>
+        <label class="field"><span>Email *</span><input name="email" type="email" required maxlength="200" autocomplete="email"></label>
+        <label class="field"><span>Preferred time</span><input name="preferred_time" maxlength="120" placeholder="e.g. weekdays after 16:00, or start in March"></label>
+        <label class="field"><span>Project description *</span><textarea name="description" rows="3" required maxlength="4000" placeholder="What would you like to build? Room, sizes, wood, colour…"></textarea></label>
+        <label class="drop" data-drop>
+          <input type="file" name="attachments" multiple accept="image/*,.pdf,.heic">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 16V4m-5 5 5-5 5 5M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></svg>
+          <span class="drop-text">Attach photos, sketches or measurements <small>up to 5 files · 10 MB each</small></span>
+        </label>
+        <ul class="file-list"></ul>
+        <div class="toggle">Delivery <button type="button" class="sw" role="switch" aria-checked="false" data-switch="delivery"></button><input type="hidden" name="delivery" value="false"></div>
+        <label class="field address" hidden><span>Delivery address</span><input name="address" maxlength="300" autocomplete="street-address"></label>
+        <label class="consent"><input type="checkbox" name="consent" required><span>I agree that my details are stored to process this request. <a href="{% url 'privacy' %}" target="_blank">Privacy</a></span></label>
+        <div class="form-error" role="alert"></div>
+        <div class="acts"><button class="btn lime" type="submit"><span class="lbl">Make an order</span><span class="spinner" aria-hidden="true"></span></button><button type="button" class="btn ghost" data-open="consult">Get consultation</button></div>
+      </form>
+      <div class="form form-success" hidden>
+        <div class="ok"><svg><use href="#check"/></svg></div>
+        <h3>Thank you — order received!</h3>
+        <p>We have sent a confirmation to your email. The carpenter will contact you within one working day.</p>
+        <button type="button" class="btn ghost js-reset">Send another request</button>
+      </div>
+      </div>
+    </div>
+    <div class="side">
+      <b>Reply within one working day</b>
+      <p>Attach photos or measurements if you have them — it helps us give you a more accurate price right away.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+{% endblock %}

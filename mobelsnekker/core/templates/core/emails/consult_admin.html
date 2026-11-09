@@ -1,0 +1,7 @@
+{% include "core/emails/_layout_start.html" %}
+<h2 style="margin:0 0 6px">Consultation request</h2><p style="color:#6b6b66;margin:0 0 18px">{{ c.created_at|date:"d.m.Y H:i" }}</p>
+<p><b>{{ c.name }}</b><br>📞 <a href="tel:{{ c.phone }}">{{ c.phone }}</a>{% if c.email %}<br>✉️ <a href="mailto:{{ c.email }}">{{ c.email }}</a>{% endif %}</p>
+<p>Contact by: <b>{{ c.get_contact_method_display }}</b><br>When: <b>{{ c.preferred_date|date:"l d.m.Y"|default:"any day" }}, {{ c.get_preferred_slot_display }}</b><br>Topic: <b>{{ c.get_topic_display|default:"-" }}</b></p>
+{% if c.message %}<p style="background:#f3f3f1;border-radius:10px;padding:14px;white-space:pre-line">{{ c.message }}</p>{% endif %}
+<p><a href="{{ admin_url }}" style="display:inline-block;background:#ccff7a;color:#0d0d0d;padding:12px 22px;border-radius:999px;text-decoration:none;font-weight:600">Open in admin</a></p>
+{% include "core/emails/_layout_end.html" %}

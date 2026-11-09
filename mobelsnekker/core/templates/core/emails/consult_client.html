@@ -1,0 +1,6 @@
+{% include "core/emails/_layout_start.html" %}
+<h2 style="margin:0 0 12px">Thank you, {{ c.name }}!</h2>
+<p>Your free consultation request is registered. We will contact you by <b>{{ c.get_contact_method_display|lower }}</b>{% if c.preferred_date %} on <b>{{ c.preferred_date|date:"l d.m" }}</b>{% endif %} ({{ c.get_preferred_slot_display }}).</p>
+<p>To make the talk more useful, you can reply with photos of the room and approximate measurements.</p>
+<p>Best regards,<br>Møbelsnekker I&amp;W</p>
+{% include "core/emails/_layout_end.html" %}

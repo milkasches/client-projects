@@ -1,0 +1,14 @@
+New order #{{ o.pk }} ({{ o.get_source_display }}) — {{ o.created_at|date:"d.m.Y H:i" }}
+
+Name: {{ o.name }}
+Phone: {{ o.phone }}
+Email: {{ o.email }}
+Preferred time: {{ o.preferred_time|default:"-" }}
+Delivery: {{ o.delivery|yesno:"yes,no" }} {{ o.address }}
+
+{{ o.description }}
+{% if o.estimate %}
+Estimate: {{ o.estimate_low }} – {{ o.estimate_high }} kr incl. VAT
+{% for l in o.estimate.lines %}  - {{ l.label }}: {{ l.amount }} kr
+{% endfor %}{% endif %}
+Admin: {{ admin_url }}

@@ -1,0 +1,9 @@
+{% include "core/emails/_layout_start.html" %}
+<h2 style="margin:0 0 6px">New order #{{ o.pk }}</h2><p style="color:#6b6b66;margin:0 0 18px">{{ o.get_source_display }} · {{ o.created_at|date:"d.m.Y H:i" }}</p>
+<p><b>{{ o.name }}</b><br>📞 <a href="tel:{{ o.phone }}">{{ o.phone }}</a><br>✉️ <a href="mailto:{{ o.email }}">{{ o.email }}</a>{% if o.preferred_time %}<br>🕑 {{ o.preferred_time }}{% endif %}</p>
+{% if o.description %}<p style="background:#f3f3f1;border-radius:10px;padding:14px;white-space:pre-line">{{ o.description }}</p>{% endif %}
+<p>Delivery: <b>{{ o.delivery|yesno:"yes,no" }}</b>{% if o.address %} — {{ o.address }}{% endif %}</p>
+{% with est=o.estimate %}{% include "core/emails/_estimate.html" %}{% endwith %}
+{% if o.attachments.exists %}<p>📎 {{ o.attachments.count }} attachment(s) — see the email attachments or the admin.</p>{% endif %}
+<p><a href="{{ admin_url }}" style="display:inline-block;background:#ccff7a;color:#0d0d0d;padding:12px 22px;border-radius:999px;text-decoration:none;font-weight:600">Open in admin</a></p>
+{% include "core/emails/_layout_end.html" %}

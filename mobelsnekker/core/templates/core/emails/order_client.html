@@ -1,0 +1,8 @@
+{% include "core/emails/_layout_start.html" %}
+<h2 style="margin:0 0 12px">Thank you, {{ o.name }}!</h2>
+<p>We have received your request and the carpenter will contact you within one working day to talk through the details.</p>
+{% if o.description %}<p style="background:#f3f3f1;border-radius:10px;padding:14px;white-space:pre-line">{{ o.description }}</p>{% endif %}
+{% if o.estimate %}<p><b>Your estimate</b> (preliminary — the final price is confirmed after measuring):</p>{% with est=o.estimate %}{% include "core/emails/_estimate.html" %}{% endwith %}{% endif %}
+<p>Have photos or measurements? Just reply to this email and attach them.</p>
+<p>Best regards,<br>Møbelsnekker I&amp;W</p>
+{% include "core/emails/_layout_end.html" %}

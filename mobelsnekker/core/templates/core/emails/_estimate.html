@@ -1,0 +1,4 @@
+{% if est %}<table style="width:100%;border-collapse:collapse;margin:12px 0;font-size:14px">
+{% for l in est.lines %}<tr><td style="padding:6px 0;border-bottom:1px solid #eee">{{ l.label }}</td><td style="padding:6px 0;border-bottom:1px solid #eee;text-align:right;white-space:nowrap">{{ l.amount }} kr</td></tr>{% endfor %}
+<tr><td style="padding:6px 0;color:#6b6b66">VAT 25 %</td><td style="text-align:right;color:#6b6b66">{{ est.vat }} kr</td></tr>
+<tr><td style="padding:8px 0"><b>Estimate incl. VAT</b></td><td style="text-align:right"><b>{{ est.low }} – {{ est.high }} kr</b></td></tr></table>{% endif %}

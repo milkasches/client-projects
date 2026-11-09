@@ -1,0 +1,4 @@
+Django>=5.1,<6.0
+Pillow>=10.0        # compress uploaded photos (optional but recommended)
+pillow-heif>=0.16   # iPhone HEIC photos (optional)
+gunicorn>=22.0      # production server (not needed on PythonAnywhere / locally)

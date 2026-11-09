@@ -1,0 +1,131 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Price calculator — Møbelsnekker I&amp;W{% endblock %}
+{% block description %}Estimate the price of a custom kitchen, wardrobe, bookshelf or table from our Oslo workshop in 30 seconds.{% endblock %}
+{% block bodyclass %}page-calc{% endblock %}
+
+{% block content %}
+<section class="calc-hero">
+  <div class="wrap">
+    <div class="eyebrow">Price calculator</div>
+    <h1>What will it cost<svg class="star"><use href="#star"/></svg></h1>
+    <p class="lead">Pick the type of furniture, size and wood — the estimate updates instantly. Prices include 25 % VAT. The final price is confirmed after a free consultation and measuring.</p>
+  </div>
+</section>
+
+<section class="calc">
+  <div class="wrap calc-grid">
+    <form id="calc" class="calc-form" autocomplete="off" data-endpoint="{% url 'api_estimate' %}" data-initial-type="{{ initial_type }}">
+
+      <div class="calc-step">
+        <div class="step-h"><span>01</span><h2>What do you need?</h2></div>
+        <div class="type-grid" data-render="types"></div>
+      </div>
+
+      <div class="calc-step">
+        <div class="step-h"><span>02</span><h2>Size</h2><small class="muted">in centimetres</small></div>
+        <div class="dims">
+          <div class="dim" data-dim="width"><label>Width</label><div class="dim-row"><input type="range" name="width_r"><input type="number" name="width" inputmode="numeric"></div></div>
+          <div class="dim" data-dim="height"><label>Height</label><div class="dim-row"><input type="range" name="height_r"><input type="number" name="height" inputmode="numeric"></div></div>
+          <div class="dim" data-dim="depth"><label>Depth</label><div class="dim-row"><input type="range" name="depth_r"><input type="number" name="depth" inputmode="numeric"></div></div>
+        </div>
+        <div class="dims-viz" aria-hidden="true"><div class="box"><span class="bw"></span><span class="bh"></span></div><p class="area-note"></p></div>
+      </div>
+
+      <div class="calc-step">
+        <div class="step-h"><span>03</span><h2>Material</h2></div>
+        <div class="chips swatches" data-render="materials"></div>
+        <div class="sub-h">Finish</div>
+        <div class="chips" data-render="finishes"></div>
+      </div>
+
+      <div class="calc-step">
+        <div class="step-h"><span>04</span><h2>Design &amp; details</h2></div>
+        <div class="cx-grid" data-render="complexity"></div>
+        <div class="extras" data-render="extras"></div>
+        <div class="sub-h">Hardware</div>
+        <div class="chips" data-render="hardware"></div>
+      </div>
+
+      <div class="calc-step">
+        <div class="step-h"><span>05</span><h2>Service</h2></div>
+        <div class="toggles">
+          <label class="tg"><input type="checkbox" name="installation"><span class="sw-ui"></span><span><b>Installation on site</b><small>Built-in furniture is mounted in your home</small></span></label>
+          <label class="tg"><input type="checkbox" name="drawings"><span class="sw-ui"></span><span><b>Technical drawings</b><small>Free for projects from 25 000 kr</small></span></label>
+          <label class="tg"><input type="checkbox" name="rush"><span class="sw-ui"></span><span><b>Express production</b><small>About 40 % faster, +20 %</small></span></label>
+        </div>
+        <div class="sub-h">Delivery</div>
+        <div class="chips" data-render="delivery"></div>
+        <div class="floor-row">
+          <label class="field small"><span>Floor</span><input type="number" name="floor" min="0" max="30" value="1"></label>
+          <label class="tg inline"><input type="checkbox" name="elevator"><span class="sw-ui"></span><span><b>Elevator</b></span></label>
+        </div>
+      </div>
+    </form>
+
+    <aside class="summary" aria-live="polite">
+      <div class="sum-card">
+        <div class="sum-top">
+          <span class="muted" id="sum-title">Estimate</span>
+          <div class="sum-price"><span id="sum-low">–</span><i>–</i><span id="sum-high">–</span> <small>kr</small></div>
+          <span class="muted">incl. VAT · <span id="sum-lead">–</span></span>
+        </div>
+        <ul class="sum-lines" id="sum-lines"></ul>
+        <div class="sum-tot"><span>Calculated price</span><b id="sum-total">–</b></div>
+        <div class="sum-vat"><span>of which VAT 25 %</span><span id="sum-vat">–</span></div>
+        <button type="button" class="btn lime full" data-open="order-modal">Send this estimate <svg width="18" height="18"><use href="#arrow"/></svg></button>
+        <button type="button" class="btn ghost full" data-open="consult">Talk to the carpenter first</button>
+        <p class="sum-note">Example prices for orientation. The exact price depends on the final drawings, hardware and site conditions.</p>
+      </div>
+    </aside>
+  </div>
+</section>
+{% endblock %}
+
+{% block modals %}
+<div class="modal" id="order-modal" role="dialog" aria-modal="true" aria-labelledby="om-title" hidden>
+  <div class="modal-backdrop" data-close></div>
+  <div class="modal-card">
+    <button type="button" class="modal-x" data-close aria-label="Close"><svg><use href="#close"/></svg></button>
+    <div class="modal-body" data-state="form">
+      <div class="modal-head">
+        <span class="eyebrow">Your estimate</span>
+        <h2 id="om-title">Send the estimate to the carpenter</h2>
+        <div class="om-est"><b id="om-range">–</b><span id="om-what"></span></div>
+      </div>
+      <form class="js-form" data-endpoint="{% url 'api_order' %}" enctype="multipart/form-data" data-with-estimate novalidate>
+        {% csrf_token %}
+        <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <input type="hidden" name="estimate">
+        <div class="row2">
+          <label class="field"><span>Name *</span><input name="name" required maxlength="120" autocomplete="name"></label>
+          <label class="field"><span>Phone *</span><input name="phone" type="tel" required maxlength="40" autocomplete="tel" placeholder="+47"></label>
+        </div>
+        <label class="field"><span>Email *</span><input name="email" type="email" required maxlength="200" autocomplete="email"></label>
+        <label class="field"><span>Comment</span><textarea name="description" rows="2" maxlength="4000" placeholder="Anything we should know? Address, deadline, colours…"></textarea></label>
+        <label class="drop" data-drop>
+          <input type="file" name="attachments" multiple accept="image/*,.pdf,.heic">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 16V4m-5 5 5-5 5 5M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></svg>
+          <span class="drop-text">Add photos of the room <small>optional · up to 5 files</small></span>
+        </label>
+        <ul class="file-list"></ul>
+        <label class="consent"><input type="checkbox" name="consent" required><span>I agree that my details are stored to process this request. <a href="{% url 'privacy' %}" target="_blank">Privacy</a></span></label>
+        <div class="form-error" role="alert"></div>
+        <button class="btn lime full" type="submit"><span class="lbl">Send estimate</span><span class="spinner" aria-hidden="true"></span></button>
+      </form>
+    </div>
+    <div class="modal-body success" data-state="success" hidden>
+      <div class="ok"><svg><use href="#check"/></svg></div>
+      <h2>Estimate sent!</h2>
+      <p>A copy is on its way to your inbox. The carpenter will contact you within one working day.</p>
+      <button type="button" class="btn ghost" data-close>Close</button>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ options|json_script:"calc-options" }}
+<script>window.IW_STATIC = "{% static 'core/img/' %}";</script>
+<script src="{% static 'core/js/calculator.js' %}" defer></script>
+{% endblock %}

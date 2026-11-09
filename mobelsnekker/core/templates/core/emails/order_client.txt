@@ -1,0 +1,11 @@
+Thank you, {{ o.name }}!
+
+We have received your request and the carpenter will contact you within one working day.
+{% if o.estimate %}
+Your preliminary estimate: {{ o.estimate_low }} – {{ o.estimate_high }} kr incl. VAT. The final price is confirmed after measuring.
+{% endif %}
+Have photos or measurements? Just reply to this email and attach them.
+
+Best regards,
+Møbelsnekker I&W
+Malmøgata 11, 0566 Oslo · +47 411 92 689

@@ -1,0 +1,6 @@
+Thank you, {{ c.name }}!
+
+Your free consultation request is registered. We will contact you by {{ c.get_contact_method_display|lower }}{% if c.preferred_date %} on {{ c.preferred_date|date:"d.m" }}{% endif %} ({{ c.get_preferred_slot_display }}).
+
+Best regards,
+Møbelsnekker I&W · +47 411 92 689

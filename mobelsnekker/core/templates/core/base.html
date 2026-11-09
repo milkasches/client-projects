@@ -1,0 +1,80 @@
+{% load static %}<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}Møbelsnekker I&amp;W — Custom furniture in Oslo{% endblock %}</title>
+<meta name="description" content="{% block description %}Custom kitchens, wardrobes, bookshelves and tables — designed around your space and handmade in our Oslo workshop. Free consultation.{% endblock %}">
+<meta property="og:title" content="Møbelsnekker I&amp;W — Custom furniture in Oslo">
+<meta property="og:description" content="Handmade furniture from our workshop in Oslo. Free consultation.">
+<meta property="og:image" content="{% static 'core/img/p01_livingroom.jpg' %}">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230d0d0d'/%3E%3Ctext x='50' y='64' font-size='40' font-family='Arial' font-weight='700' text-anchor='middle' fill='%23ccff7a'%3EI%26W%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'core/css/site.css' %}">
+<link rel="stylesheet" href="{% static 'core/css/app.css' %}">
+<link rel="stylesheet" href="{% static 'core/css/anim.css' %}">
+{% block head %}{% endblock %}
+</head>
+<body class="{% block bodyclass %}{% endblock %}">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="star" viewBox="0 0 100 100"><path fill="currentColor" d="M50 0l5 37 27-26-20 32 38-3-36 12 36 12-38-3 20 32-27-26-5 37-5-37-27 26 20-32-38 3 36-12L0 40l38 3-20-32 27 26z"/></symbol>
+  <symbol id="arrow" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+  <symbol id="check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+</svg>
+
+<header class="nav">
+  <div class="wrap">
+    <a href="{% url 'index' %}" class="logo">I&amp;W</a>
+    <ul>
+      <li><a href="{% url 'index' %}#services">Services</a></li>
+      <li><a href="{% url 'index' %}#projects">Portfolio</a></li>
+      <li><a href="{% url 'index' %}#process">How it works</a></li>
+      <li><a href="{% url 'calculator' %}" class="{% if request.resolver_match.url_name == 'calculator' %}active{% endif %}">Price calculator</a></li>
+      <li><a href="{% url 'index' %}#reviews">Reviews</a></li>
+    </ul>
+    <div class="right">
+      <a href="tel:+4741192689" class="hide-sm">+47 411 92 689</a>
+      <button type="button" class="btn ghost sm" data-open="consult">Get consultation</button>
+      <a href="{% url 'index' %}#contact" class="btn lime sm hide-sm">Make an order</a>
+    </div>
+  </div>
+</header>
+
+<main>{% block content %}{% endblock %}</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div><h4>Contacts</h4>
+        <ul><li><a href="tel:+4741192689">+47 411 92 689</a></li><li><a href="mailto:{{ contact_email }}">{{ contact_email }}</a></li><li><a href="{{ facebook_url }}" target="_blank" rel="noopener">Facebook</a></li></ul>
+        <div class="icons">
+          <a href="tel:+4741192689" aria-label="Phone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></a>
+          <a href="{{ facebook_url }}" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v7h4v-7h3l1-4h-4V8z"/></svg></a>
+          <a href="mailto:{{ contact_email }}" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="m3 6 9 7 9-7"/></svg></a>
+        </div>
+      </div>
+      <div><h4>Our workshop</h4>
+        <ul><li>Malmøgata 11, 0566 Oslo</li><li>Mon – Fri: 9:00 – 15:30</li><li>Thursday: 9:30 – 16:00</li></ul></div>
+      <div><h4>Navigation</h4>
+        <ul><li><a href="{% url 'index' %}#projects">Portfolio</a></li><li><a href="{% url 'index' %}#services">Services</a></li><li><a href="{% url 'index' %}#process">How it works</a></li><li><a href="{% url 'calculator' %}">Price calculator</a></li></ul></div>
+      <div><h4>Web development &amp; design</h4>
+        <p class="small">*If you notice any inaccuracies in the site's operation or would like a website for your own business, please contact me:</p>
+        <ul><li><a href="mailto:milkaolder@gmail.com">milkaolder@gmail.com</a></li><li>www.linkedin.com/in/evastall</li></ul></div>
+    </div>
+    <div class="bigword">Møbelsnekker</div>
+    <div class="legal"><span>© {% now "Y" %} Møbelsnekker I&amp;W</span><a href="{% url 'privacy' %}">Privacy</a></div>
+  </div>
+</footer>
+
+{% include "core/_consult_modal.html" %}
+{% block modals %}{% endblock %}
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="{% static 'core/js/main.js' %}" defer></script>
+<script src="{% static 'core/js/animations.js' %}" defer></script>
+{% block scripts %}{% endblock %}
+</body>
+</html>

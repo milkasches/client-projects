@@ -1,0 +1,12 @@
+Consultation request — {{ c.created_at|date:"d.m.Y H:i" }}
+
+Name: {{ c.name }}
+Phone: {{ c.phone }}
+Email: {{ c.email|default:"-" }}
+Contact by: {{ c.get_contact_method_display }}
+When: {{ c.preferred_date|date:"d.m.Y"|default:"any day" }}, {{ c.get_preferred_slot_display }}
+Topic: {{ c.get_topic_display|default:"-" }}
+
+{{ c.message }}
+
+Admin: {{ admin_url }}

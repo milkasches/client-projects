@@ -1,0 +1,73 @@
+<div class="modal" id="consult" role="dialog" aria-modal="true" aria-labelledby="consult-title" hidden>
+  <div class="modal-backdrop" data-close></div>
+  <div class="modal-card">
+    <button type="button" class="modal-x" data-close aria-label="Close"><svg><use href="#close"/></svg></button>
+
+    <div class="modal-body" data-state="form">
+      <div class="modal-head">
+        <span class="eyebrow">Free · 20–30 minutes · no obligation</span>
+        <h2 id="consult-title">Book a free consultation</h2>
+        <p>Tell us a bit about your idea — the carpenter will call or write you back to talk through materials, sizes and budget.</p>
+      </div>
+
+      <form class="js-form" data-endpoint="{% url 'api_consultation' %}" novalidate>
+        {% csrf_token %}
+        <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <div class="row2">
+          <label class="field"><span>Name *</span><input name="name" required maxlength="120" autocomplete="name"></label>
+          <label class="field"><span>Phone *</span><input name="phone" required type="tel" maxlength="40" autocomplete="tel" placeholder="+47"></label>
+        </div>
+        <label class="field"><span>Email</span><input name="email" type="email" maxlength="200" autocomplete="email"></label>
+
+        <fieldset class="chips-group">
+          <legend>How should we contact you?</legend>
+          <div class="chips">
+            <label class="chip"><input type="radio" name="contact_method" value="phone" checked><span>Phone call</span></label>
+            <label class="chip"><input type="radio" name="contact_method" value="email"><span>Email</span></label>
+            <label class="chip"><input type="radio" name="contact_method" value="sms"><span>SMS</span></label>
+            <label class="chip"><input type="radio" name="contact_method" value="workshop"><span>Visit the workshop</span></label>
+          </div>
+        </fieldset>
+
+        <div class="row2">
+          <label class="field"><span>Preferred day</span><input name="preferred_date" type="date" class="js-min-today"></label>
+          <label class="field"><span>Time</span>
+            <select name="preferred_slot">
+              <option value="any">Any time</option>
+              <option value="morning">09:00 – 12:00</option>
+              <option value="midday">12:00 – 15:00</option>
+              <option value="afternoon">15:00 – 18:00</option>
+            </select>
+          </label>
+        </div>
+
+        <label class="field"><span>What is it about?</span>
+          <select name="topic">
+            <option value="">Choose…</option>
+            <option value="kitchen">Kitchen</option>
+            <option value="wardrobe">Wardrobe</option>
+            <option value="bookshelf">Bookshelf / TV wall</option>
+            <option value="table">Table / bench</option>
+            <option value="cabinet">Sideboard / cabinet</option>
+            <option value="panels">Wall panelling / built-ins</option>
+            <option value="other">Something else</option>
+          </select>
+        </label>
+        <label class="field"><span>Short description</span><textarea name="message" rows="3" maxlength="2000" placeholder="Room, approximate size, ideas…"></textarea></label>
+
+        <label class="consent"><input type="checkbox" name="consent" required><span>I agree that Møbelsnekker I&amp;W stores my details to answer this request. <a href="{% url 'privacy' %}" target="_blank">Privacy</a></span></label>
+
+        <div class="form-error" role="alert"></div>
+        <button class="btn lime full" type="submit"><span class="lbl">Book consultation</span><span class="spinner" aria-hidden="true"></span></button>
+      </form>
+    </div>
+
+    <div class="modal-body success" data-state="success" hidden>
+      <div class="ok"><svg><use href="#check"/></svg></div>
+      <h2>Thank you!</h2>
+      <p>Your request has been received. We usually answer within one working day.</p>
+      <button type="button" class="btn ghost" data-close>Close</button>
+    </div>
+  </div>
+</div>
